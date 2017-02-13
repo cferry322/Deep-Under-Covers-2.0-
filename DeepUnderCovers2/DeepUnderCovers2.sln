@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{017FF58D-6013-8B53-F083-B21B5EEC2E95}") = "DeepUnderCovers2", "Assembly-CSharp.csproj", "{F1C4055B-F431-7096-0DF6-3D7FEC21DDB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1C4055B-F431-7096-0DF6-3D7FEC21DDB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C4055B-F431-7096-0DF6-3D7FEC21DDB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C4055B-F431-7096-0DF6-3D7FEC21DDB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C4055B-F431-7096-0DF6-3D7FEC21DDB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
