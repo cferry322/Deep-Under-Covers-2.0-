@@ -9,17 +9,37 @@ public class GameOver : MonoBehaviour {
 
 	static bool lose;
 	static bool win;
+	static bool restart;
 
 	public Slider heatSlider;
 	public Slider timerSlider;
 	public Text gameOverText;
+	public Text restartText;
+
 	// Use this for initialization
 	void Start () {
 		gameOverText.text = "";
+		restartText.text = "";
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (restart)
+		{
+			restartText.text = "Tap to restart";
+			if (Input.GetButton ("Fire1"))
+			{
+				SceneManager.LoadScene("DanWorkshop");
+				restart = false;
+				lose = false;
+				win = false;
+				gameOverText.text = "";
+				restartText.text = "";
+				Time.timeScale = 1;
+			}
+		}
+
 		if (lose) {
 			gameOverText.text = "You Lose!";
 		}
@@ -30,8 +50,10 @@ public class GameOver : MonoBehaviour {
 	}
 	public static void LoseGame() {
 		lose = true;
+		restart = true;
 	}
 	public static void WinGame() {
 		win = true;
+		restart = true;
 	}
 }

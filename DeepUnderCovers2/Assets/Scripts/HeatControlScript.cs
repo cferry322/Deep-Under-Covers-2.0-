@@ -9,7 +9,10 @@ public class HeatControlScript : MonoBehaviour {
 	public float decreaseValue = 0.2f;
 
 
+	public Slider timerSlider;
 	static Slider heatSlider;
+	static bool HeatControlwin;
+
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +24,7 @@ public class HeatControlScript : MonoBehaviour {
 		if(heatSlider.value >= 1) {
 			GameOver.LoseGame();
 			this.enabled = false;
+			Time.timeScale = 0;
 		}
 		if (Input.GetButton ("Fire1")) {
 			heatSlider.value = heatSlider.value - decreaseValue * Time.deltaTime;
