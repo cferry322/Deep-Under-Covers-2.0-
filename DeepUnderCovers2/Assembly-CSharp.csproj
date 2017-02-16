@@ -59,6 +59,7 @@
      <Compile Include="Assets\ExampleScripts\SplashScreenScript.cs" />
      <Compile Include="Assets\Scripts\GameOver.cs" />
      <Compile Include="Assets\Scripts\HeatControlScript.cs" />
+     <Compile Include="Assets\Scripts\MoverScript.cs" />
      <Compile Include="Assets\Scripts\TimerScript.cs" />
      <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
  <Reference Include="UnityEngine.Analytics">
