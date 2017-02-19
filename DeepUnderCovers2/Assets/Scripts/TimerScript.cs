@@ -22,9 +22,6 @@ public class TimerScript : MonoBehaviour {
 
 		if(timerSlider.value >= 1) {
 			GameOver.WinGame();
-			this.enabled = false;
-			heatSlider.enabled = false;
-			Time.timeScale = 0;
 		}
 
 		timerSlider.value = timerSlider.value + increaseAmount * Time.deltaTime;

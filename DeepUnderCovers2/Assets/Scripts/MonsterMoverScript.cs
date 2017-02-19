@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class MonsterBoundary
+public class Boundary
 {
 	public float xMin, xMax;
 }
 
-public class MoverScript : MonoBehaviour {
+public class MonsterMoverScript : MonoBehaviour {
 
 	private Rigidbody2D rb2d;
 
+	public float loseDelay = 2.0f;
 	public float speedOut;
 	public float speedIn;
 	public Boundary boundary;
@@ -21,24 +22,34 @@ public class MoverScript : MonoBehaviour {
 		rb2d = GetComponent<Rigidbody2D> ();
 		
 	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.CompareTag("Player"))
+			GameOver.LoseGame();
+			Time.timeScale = 0;
+		if (Time.unscaledDeltaTime >= loseDelay){
+			
+		}
+
+	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		Vector3 armMovement = new Vector3 (1.0f, 0.0f, 0.0f);
+		Vector3 monsterMove = new Vector3 (1.0f, 0.0f, 0.0f);
 		rb2d.position = new Vector3 
 			(
 				Mathf.Clamp (rb2d.position.x, boundary.xMin, boundary.xMax), 
-				0.0f, 
+				rb2d.position.y, 
 				0.0f
 			);
 		if (Input.GetButton ("Fire1")) {
 
-			rb2d.velocity = armMovement * speedOut;
+			rb2d.velocity = -monsterMove * speedIn;
 
 
 		} else {
 
-			rb2d.velocity = -armMovement * speedIn;
+			rb2d.velocity = monsterMove * speedOut;
 		}
 	}
 }

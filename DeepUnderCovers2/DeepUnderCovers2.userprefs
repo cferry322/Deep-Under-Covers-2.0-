@@ -1,17 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MoverScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HeatControlScript.cs">
     <Files>
-      <File FileName="Assets/Scripts/MoverScript.cs" Line="36" Column="40" />
-      <File FileName="Assets/Scripts/GameOver.cs" Line="33" Column="41" />
-      <File FileName="Assets/Scripts/TimerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/HeatControlScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/ExampleScripts/HeatCtrlScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/ExampleScripts/ButtonClickScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/ExampleScripts/MasterGameCtrlScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/ExampleScripts/KeyboardCtrlScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/ExampleScripts/AnimationOnSliderScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/ExampleScripts/NightCtrlScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MoverScript.cs" Line="41" Column="8" />
+      <File FileName="Assets/Scripts/GameOver.cs" Line="31" Column="27" />
+      <File FileName="Assets/Scripts/TimerScript.cs" Line="24" Column="23" />
+      <File FileName="Assets/Scripts/HeatControlScript.cs" Line="10" Column="2" />
+      <File FileName="Assets/Scripts/MonsterMoverScript.cs" Line="28" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

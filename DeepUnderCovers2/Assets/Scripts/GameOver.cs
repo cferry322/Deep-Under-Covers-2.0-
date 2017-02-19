@@ -28,7 +28,7 @@ public class GameOver : MonoBehaviour {
 		if (restart)
 		{
 			restartText.text = "Tap to restart";
-			if (Input.GetButton ("Fire1"))
+			if (Input.GetButtonDown ("Fire1"))
 			{
 				SceneManager.LoadScene("DanWorkshop");
 				restart = false;
@@ -51,9 +51,11 @@ public class GameOver : MonoBehaviour {
 	public static void LoseGame() {
 		lose = true;
 		restart = true;
+		Time.timeScale = 0;
 	}
 	public static void WinGame() {
 		win = true;
 		restart = true;
+		Time.timeScale = 0;
 	}
 }
