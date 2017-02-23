@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Boundary
+public class MonsterBoundary
 {
-	public float xMin, xMax;
+	public float leftBoundary, rightBoundary;
 }
 
 public class MonsterMoverScript : MonoBehaviour {
 
 	private Rigidbody2D rb2d;
 
-	public float loseDelay = 2.0f;
 	public float speedOut;
 	public float speedIn;
-	public Boundary boundary;
+	public MonsterBoundary boundary;
 
 	// Use this for initialization
 	void Start () {
@@ -26,10 +25,6 @@ public class MonsterMoverScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.CompareTag("Player"))
 			GameOver.LoseGame();
-			Time.timeScale = 0;
-		if (Time.unscaledDeltaTime >= loseDelay){
-			
-		}
 
 	}
 	
@@ -38,7 +33,7 @@ public class MonsterMoverScript : MonoBehaviour {
 		Vector3 monsterMove = new Vector3 (1.0f, 0.0f, 0.0f);
 		rb2d.position = new Vector3 
 			(
-				Mathf.Clamp (rb2d.position.x, boundary.xMin, boundary.xMax), 
+				Mathf.Clamp (rb2d.position.x, boundary.leftBoundary, boundary.rightBoundary), 
 				rb2d.position.y, 
 				0.0f
 			);

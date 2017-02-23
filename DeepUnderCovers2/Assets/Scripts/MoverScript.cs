@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class MonsterBoundary
+public class Boundary
 {
-	public float xMin, xMax;
+	public float leftBoundary, rightBoundary;
 }
 
 public class MoverScript : MonoBehaviour {
@@ -27,7 +27,7 @@ public class MoverScript : MonoBehaviour {
 		Vector3 armMovement = new Vector3 (1.0f, 0.0f, 0.0f);
 		rb2d.position = new Vector3 
 			(
-				Mathf.Clamp (rb2d.position.x, boundary.xMin, boundary.xMax), 
+				Mathf.Clamp (rb2d.position.x, boundary.leftBoundary, boundary.rightBoundary), 
 				0.0f, 
 				0.0f
 			);
