@@ -12,6 +12,7 @@ public class MonsterMoverScript : MonoBehaviour {
 
 
 	static private bool pressed;
+	static private bool legPressed;
 
 	public float speedRight;
 	public float speedLeft;
@@ -19,6 +20,7 @@ public class MonsterMoverScript : MonoBehaviour {
 
 	void Start(){
 		pressed = false;
+		legPressed = false;
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -29,8 +31,13 @@ public class MonsterMoverScript : MonoBehaviour {
 	static public void MonsterButtonDown(){
 		pressed = true;
 	}
-
 	static public void MonsterButtonUp(){
+		pressed = false;
+	}
+	static public void LegMonsterButtonDown(){
+		pressed = true;
+	}
+	static public void LegMonsterButtonUp(){
 		pressed = false;
 	}
 
@@ -42,13 +49,20 @@ public class MonsterMoverScript : MonoBehaviour {
 				this.transform.position.y, 
 				0.0f
 			);
-		if (pressed) {
-
+		if (pressed) 
+		{
 			this.transform.Translate(-0.1f * speedLeft, 0.0f, 0.0f);
-
-
-		} else {
-
+		} 
+		else if (!pressed)
+		{
+			this.transform.Translate(0.1f * speedRight, 0.0f, 0.0f);
+		}
+		if (legPressed) 
+		{
+			this.transform.Translate(-0.1f * speedLeft, 0.0f, 0.0f);
+		} 
+		else if (!legPressed)
+		{
 			this.transform.Translate(0.1f * speedRight, 0.0f, 0.0f);
 		}
 	}

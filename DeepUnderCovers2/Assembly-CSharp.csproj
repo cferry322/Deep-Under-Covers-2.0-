@@ -60,10 +60,10 @@
      <Compile Include="Assets\Scripts\ButtonScript.cs" />
      <Compile Include="Assets\Scripts\GameOver.cs" />
      <Compile Include="Assets\Scripts\HeatControlScript.cs" />
-     <Compile Include="Assets\Scripts\LeftMonsterMoverScript.cs" />
-     <Compile Include="Assets\Scripts\LeftMoverScript.cs" />
-     <Compile Include="Assets\Scripts\MonsterMoverScript.cs" />
-     <Compile Include="Assets\Scripts\MoverScript.cs" />
+     <Compile Include="Assets\Scripts\MoverScripts\LeftMonsterMoverScript.cs" />
+     <Compile Include="Assets\Scripts\MoverScripts\LeftMoverScript.cs" />
+     <Compile Include="Assets\Scripts\MoverScripts\MonsterMoverScript.cs" />
+     <Compile Include="Assets\Scripts\MoverScripts\MoverScript.cs" />
      <Compile Include="Assets\Scripts\TimerScript.cs" />
      <Compile Include="Assets\Scripts\TouchInputScript.cs" />
      <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />

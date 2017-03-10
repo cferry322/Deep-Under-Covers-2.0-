@@ -10,22 +10,30 @@ public class Boundary
 
 public class LeftMoverScript : MonoBehaviour {
 
-	static private bool pressed;
+	static private bool armPressed;
+	static private bool legPressed;
 
 	public float speedRight;
 	public float speedLeft;
 	public Boundary boundary;
 
 	void Start(){
-		pressed = false;
+		armPressed = false;
+		legPressed = false;
 	}
 
 
-	static public void MoverButtonDown() {
-		pressed = true;
+	static public void ArmButtonDown() {
+		armPressed = true;
 	}
-	static public void MoverButtonUp(){
-		pressed = false;
+	static public void ArmButtonUp(){
+		armPressed = false;
+	}
+	static public void LegButtonDown() {
+		legPressed = true;
+	}
+	static public void LegButtonUp(){
+		legPressed = false;
 	}
 	
 	// Update is called once per frame
@@ -37,13 +45,20 @@ public class LeftMoverScript : MonoBehaviour {
 				this.transform.position.y, 
 				0.0f
 			);
-		if (pressed) {
-
+		if (armPressed) 
+		{
 			this.transform.Translate(-0.1f * speedLeft, 0.0f, 0.0f);
-
-
-		} else {
-
+		} 
+		else if (!armPressed)
+		{
+			this.transform.Translate(0.1f * speedRight, 0.0f, 0.0f);
+		}
+		if (legPressed) 
+		{
+			this.transform.Translate(-0.1f * speedLeft, 0.0f, 0.0f);
+		} 
+		else if (!legPressed)
+		{
 			this.transform.Translate(0.1f * speedRight, 0.0f, 0.0f);
 		}
 	}

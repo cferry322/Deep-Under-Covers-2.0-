@@ -4,35 +4,61 @@ using UnityEngine;
 
 public class ButtonScript : MonoBehaviour {
 
-	bool pressed;
+	bool rightArmPressed;
+	bool leftArmPressed;
+	bool rightLegPressed;
+	bool leftLegPressed;
+
 	public float increaseHeatAmount = 0.2f;
 	public float decreaseHeatAmount = 0.2f;
 
 	void Start(){
-		pressed = false;
+		rightArmPressed = false;
 	}
 
-	public void ButtonPressed() {
-		pressed = true;
+	//this function calls both MoverScript and MonsterMoverScript
+	public void RightArmButtonPressed() {
+		rightArmPressed = true;
 		MonsterMoverScript.MonsterButtonDown ();
-		MoverScript.MoverButtonDown ();
+		MoverScript.ArmButtonDown ();
 	}
 
-	public void ButtonReleased(){
-		pressed = false;
+	public void RightArmButtonReleased(){
+		rightArmPressed = false;
 		MonsterMoverScript.MonsterButtonUp ();
-		MoverScript.MoverButtonUp ();
+		MoverScript.ArmButtonUp ();
+	}
+	public void RightLegButtonPressed() {
+		rightLegPressed = true;
+		MonsterMoverScript.LegMonsterButtonDown ();
+		MoverScript.LegButtonDown ();
+	}
+
+	public void RightLegButtonReleased(){
+		rightLegPressed = false;
+		MonsterMoverScript.LegMonsterButtonUp ();
+		MoverScript.LegButtonUp ();
 	}
 
 	void Update(){
 
-		if (pressed) {
+		if (rightArmPressed || rightLegPressed || leftArmPressed || leftLegPressed) {
 			HeatControlScript.DecraseSlider (decreaseHeatAmount * Time.deltaTime);
-
 		} else {
 			HeatControlScript.IncreaseSlider (increaseHeatAmount * Time.deltaTime);
 		}
 
 	}
 
+	/*
+	MonsterMoverScript.MonsterButtonDown ();
+	MoverScript.MoverButtonDown ();
+	LeftMonsterMoverScript.MonsterButtonDown ();
+	LeftMoverScript.MoverButtonDown ();
+
+	MonsterMoverScript.MonsterButtonUp ();
+		MoverScript.MoverButtonUp ();
+		LeftMonsterMoverScript.MonsterButtonUp ();
+		LeftMoverScript.MoverButtonUp ();
+*/
 	}
