@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Boundary
-{
-	public float leftBoundary, rightBoundary;
-}
+
 
 public class MoverScript : MonoBehaviour {
 
