@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class TimerScript : MonoBehaviour {
 	public float increaseAmount = 0.1f;
-	public Slider heatSlider;
 
 	static Slider timerSlider;
 	static bool lose;

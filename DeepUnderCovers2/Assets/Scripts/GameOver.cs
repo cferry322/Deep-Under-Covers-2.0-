@@ -25,8 +25,7 @@ public class GameOver : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (restart)
-		{
+		if (restart) {
 			restartText.text = "Tap to restart";
 			if (Input.GetButtonDown ("Fire1"))
 			{
@@ -37,6 +36,7 @@ public class GameOver : MonoBehaviour {
 				gameOverText.text = "";
 				restartText.text = "";
 				Time.timeScale = 1;
+
 			}
 		}
 

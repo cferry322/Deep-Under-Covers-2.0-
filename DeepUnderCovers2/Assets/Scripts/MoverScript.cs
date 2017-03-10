@@ -10,35 +10,41 @@ public class Boundary
 
 public class MoverScript : MonoBehaviour {
 
-	private Rigidbody2D rb2d;
+	static private bool pressed;
 
-	public float speedOut;
-	public float speedIn;
+	public float speedRight;
+	public float speedLeft;
 	public Boundary boundary;
 
-	// Use this for initialization
-	void Start () {
-		rb2d = GetComponent<Rigidbody2D> ();
-		
+	void Start(){
+		pressed = false;
+	}
+
+
+	static public void MoverButtonDown() {
+		pressed = true;
+	}
+	static public void MoverButtonUp(){
+		pressed = false;
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-		Vector3 armMovement = new Vector3 (1.0f, 0.0f, 0.0f);
-		rb2d.position = new Vector3 
+	void Update () {
+		 
+		this.transform.position = new Vector3 
 			(
-				Mathf.Clamp (rb2d.position.x, boundary.leftBoundary, boundary.rightBoundary), 
-				0.0f, 
+				Mathf.Clamp (this.transform.position.x, boundary.leftBoundary, boundary.rightBoundary), 
+				this.transform.position.y, 
 				0.0f
 			);
-		if (Input.GetButton ("Fire1")) {
+		if (pressed) {
 
-			rb2d.velocity = armMovement * speedOut;
+			this.transform.Translate(0.1f * speedRight, 0.0f, 0.0f);
 
 
 		} else {
 
-			rb2d.velocity = -armMovement * speedIn;
+			this.transform.Translate(-0.1f * speedLeft, 0.0f, 0.0f);
 		}
 	}
 }

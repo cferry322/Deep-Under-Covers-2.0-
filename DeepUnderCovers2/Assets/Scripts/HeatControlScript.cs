@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class HeatControlScript : MonoBehaviour {
 
-	public float rateOfIncrease = 0.1f;
-	public float decreaseValue = 0.2f;
-
 	static Slider heatSlider;
 	static bool HeatControlwin;
 
@@ -22,12 +19,15 @@ public class HeatControlScript : MonoBehaviour {
 		if(heatSlider.value >= 1) {
 			GameOver.LoseGame();
 		}
-		if (Input.GetButton ("Fire1")) {
-			heatSlider.value = heatSlider.value - decreaseValue * Time.deltaTime;
 
-		} 
-			else {
-			heatSlider.value = heatSlider.value + rateOfIncrease * Time.deltaTime;
-		}
+	}
+	public static void DecraseSlider(float decreaseValue)
+	{
+		heatSlider.value -= decreaseValue;
+	}
+
+	public static void IncreaseSlider(float increaseValue)
+	{
+		heatSlider.value += increaseValue;
 	}
 }

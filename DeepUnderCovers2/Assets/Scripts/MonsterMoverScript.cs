@@ -10,41 +10,46 @@ public class MonsterBoundary
 
 public class MonsterMoverScript : MonoBehaviour {
 
-	private Rigidbody2D rb2d;
 
-	public float speedOut;
-	public float speedIn;
+	static private bool pressed;
+
+	public float speedRight;
+	public float speedLeft;
 	public MonsterBoundary boundary;
 
-	// Use this for initialization
-	void Start () {
-		rb2d = GetComponent<Rigidbody2D> ();
-		
+	void Start(){
+		pressed = false;
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.CompareTag("Player"))
 			GameOver.LoseGame();
-
 	}
-	
+
+	static public void MonsterButtonDown(){
+		pressed = true;
+	}
+
+	static public void MonsterButtonUp(){
+		pressed = false;
+	}
+
 	// Update is called once per frame
-	void FixedUpdate () {
-		Vector3 monsterMove = new Vector3 (1.0f, 0.0f, 0.0f);
-		rb2d.position = new Vector3 
+	void Update () {
+		this.transform.position = new Vector3 
 			(
-				Mathf.Clamp (rb2d.position.x, boundary.leftBoundary, boundary.rightBoundary), 
-				rb2d.position.y, 
+				Mathf.Clamp (this.transform.position.x, boundary.leftBoundary, boundary.rightBoundary), 
+				this.transform.position.y, 
 				0.0f
 			);
-		if (Input.GetButton ("Fire1")) {
+		if (pressed) {
 
-			rb2d.velocity = -monsterMove * speedIn;
+			this.transform.Translate(-0.1f * speedLeft, 0.0f, 0.0f);
 
 
 		} else {
 
-			rb2d.velocity = monsterMove * speedOut;
+			this.transform.Translate(0.1f * speedRight, 0.0f, 0.0f);
 		}
 	}
 }
