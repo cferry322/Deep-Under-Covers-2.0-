@@ -44,19 +44,19 @@ public class MoverScript : MonoBehaviour {
 			);
 		if (CompareTag("Arm") && armPressed) 
 		{
-			this.transform.Translate(0.1f * speedRight, 0.0f, 0.0f);
+			this.transform.Translate(0.1f * speedRight * Time.deltaTime, 0.0f, 0.0f);
 		} 
 		else if (CompareTag("Arm")&& !armPressed) 
 		{
-			this.transform.Translate(-0.1f * speedLeft, 0.0f, 0.0f);
+			this.transform.Translate(-0.1f * speedLeft * Time.deltaTime, 0.0f, 0.0f);
 		}
 		if (CompareTag("Leg") && legPressed) 
 		{
-			this.transform.Translate(0.1f * speedRight, 0.0f, 0.0f);
+			this.transform.Translate(0.1f * speedRight * Time.deltaTime, 0.0f, 0.0f);
 		} 
 		else if (CompareTag("Leg") && !legPressed)
 		{
-			this.transform.Translate(-0.1f * speedLeft, 0.0f, 0.0f);
+			this.transform.Translate(-0.1f * speedLeft * Time.deltaTime, 0.0f, 0.0f);
 		}
 	}
 }

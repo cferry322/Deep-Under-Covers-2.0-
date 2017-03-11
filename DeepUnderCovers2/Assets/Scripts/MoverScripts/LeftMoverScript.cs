@@ -17,7 +17,8 @@ public class LeftMoverScript : MonoBehaviour {
 	public float speedLeft;
 	public Boundary boundary;
 
-	void Start(){
+	void Start()
+    {
 		armPressed = false;
 		legPressed = false;
 	}
@@ -45,21 +46,21 @@ public class LeftMoverScript : MonoBehaviour {
 				this.transform.position.y, 
 				0.0f
 			);
-		if (armPressed) 
+		if (this.CompareTag("Arm") && armPressed) 
 		{
-			this.transform.Translate(-0.1f * speedLeft, 0.0f, 0.0f);
+			this.transform.Translate(-0.1f * speedLeft * Time.deltaTime, 0.0f, 0.0f);
 		} 
-		else if (!armPressed)
+		else if (this.CompareTag("Arm") && !armPressed)
 		{
-			this.transform.Translate(0.1f * speedRight, 0.0f, 0.0f);
+			this.transform.Translate(0.1f * speedRight * Time.deltaTime, 0.0f, 0.0f);
 		}
-		if (legPressed) 
+		if (this.CompareTag("Leg") && legPressed) 
 		{
-			this.transform.Translate(-0.1f * speedLeft, 0.0f, 0.0f);
+			this.transform.Translate(-0.1f * speedLeft * Time.deltaTime, 0.0f, 0.0f);
 		} 
-		else if (!legPressed)
+		else if (this.CompareTag("Leg") && !legPressed)
 		{
-			this.transform.Translate(0.1f * speedRight, 0.0f, 0.0f);
+			this.transform.Translate(0.1f * speedRight * Time.deltaTime, 0.0f, 0.0f);
 		}
 	}
 }

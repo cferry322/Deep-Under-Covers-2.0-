@@ -11,7 +11,7 @@ public class MonsterBoundary
 public class MonsterMoverScript : MonoBehaviour {
 
 
-	static private bool pressed;
+	static private bool armPressed;
 	static private bool legPressed;
 
 	public float speedRight;
@@ -19,26 +19,26 @@ public class MonsterMoverScript : MonoBehaviour {
 	public MonsterBoundary boundary;
 
 	void Start(){
-		pressed = false;
+		armPressed = false;
 		legPressed = false;
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.CompareTag("Player"))
+		if (other.CompareTag("Arm") || other.CompareTag("Leg"))
 			GameOver.LoseGame();
 	}
 
 	static public void MonsterButtonDown(){
-		pressed = true;
+		armPressed = true;
 	}
 	static public void MonsterButtonUp(){
-		pressed = false;
+		armPressed = false;
 	}
 	static public void LegMonsterButtonDown(){
-		pressed = true;
+		legPressed = true;
 	}
 	static public void LegMonsterButtonUp(){
-		pressed = false;
+		legPressed = false;
 	}
 
 	// Update is called once per frame
@@ -49,21 +49,22 @@ public class MonsterMoverScript : MonoBehaviour {
 				this.transform.position.y, 
 				0.0f
 			);
-		if (pressed) 
+		if (this.CompareTag("Arm") && armPressed) 
 		{
-			this.transform.Translate(-0.1f * speedLeft, 0.0f, 0.0f);
+			this.transform.Translate(-0.1f * speedLeft * Time.deltaTime, 0.0f, 0.0f);
 		} 
-		else if (!pressed)
+		else if (this.CompareTag("Arm") && !armPressed)
 		{
-			this.transform.Translate(0.1f * speedRight, 0.0f, 0.0f);
+			this.transform.Translate(0.1f * speedRight * Time.deltaTime, 0.0f, 0.0f);
 		}
-		if (legPressed) 
+
+		if (this.CompareTag("Leg") && legPressed) 
 		{
-			this.transform.Translate(-0.1f * speedLeft, 0.0f, 0.0f);
+			this.transform.Translate(-0.1f * speedLeft * Time.deltaTime, 0.0f, 0.0f);
 		} 
-		else if (!legPressed)
+		else if (this.CompareTag("Leg") && !legPressed)
 		{
-			this.transform.Translate(0.1f * speedRight, 0.0f, 0.0f);
+			this.transform.Translate(0.1f * speedRight * Time.deltaTime, 0.0f, 0.0f);
 		}
 	}
 }

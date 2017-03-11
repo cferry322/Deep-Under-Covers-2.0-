@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour {
 
+
 	static bool lose;
 	static bool win;
 	static bool restart;

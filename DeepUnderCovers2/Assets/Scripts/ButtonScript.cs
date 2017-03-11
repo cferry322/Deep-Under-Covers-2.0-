@@ -14,7 +14,11 @@ public class ButtonScript : MonoBehaviour {
 
 	void Start(){
 		rightArmPressed = false;
-	}
+        rightLegPressed = false;
+        leftArmPressed = false;
+        leftLegPressed = false;
+
+    }
 
 	//this function calls both MoverScript and MonsterMoverScript
 	public void RightArmButtonPressed() {
@@ -40,12 +44,39 @@ public class ButtonScript : MonoBehaviour {
 		MoverScript.LegButtonUp ();
 	}
 
-	void Update(){
+    public void LeftArmButtonPressed()
+    {
+        leftArmPressed = true;
+        LeftMonsterMoverScript.MonsterButtonDown();
+        LeftMoverScript.ArmButtonDown();
+    }
+
+    public void leftArmButtonReleased()
+    {
+        leftArmPressed = false;
+        LeftMonsterMoverScript.MonsterButtonUp();
+        LeftMoverScript.ArmButtonUp();
+    }
+    public void LeftLegButtonPressed()
+    {
+        leftLegPressed = true;
+        LeftMonsterMoverScript.LegMonsterButtonDown();
+        LeftMoverScript.LegButtonDown();
+    }
+
+    public void LeftLegButtonReleased()
+    {
+        leftLegPressed = false;
+        LeftMonsterMoverScript.LegMonsterButtonUp();
+        LeftMoverScript.LegButtonUp();
+    }
+
+    void Update(){
 
 		if (rightArmPressed || rightLegPressed || leftArmPressed || leftLegPressed) {
-			HeatControlScript.DecraseSlider (decreaseHeatAmount * Time.deltaTime);
+			HeatControlScript.DecraseSlider (decreaseHeatAmount / 4 * Time.deltaTime);
 		} else {
-			HeatControlScript.IncreaseSlider (increaseHeatAmount * Time.deltaTime);
+			HeatControlScript.IncreaseSlider (increaseHeatAmount / 4 * Time.deltaTime);
 		}
 
 	}
