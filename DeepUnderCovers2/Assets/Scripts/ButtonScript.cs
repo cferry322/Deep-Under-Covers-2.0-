@@ -51,7 +51,7 @@ public class ButtonScript : MonoBehaviour {
         LeftMoverScript.ArmButtonDown();
     }
 
-    public void leftArmButtonReleased()
+    public void LeftArmButtonReleased()
     {
         leftArmPressed = false;
         LeftMonsterMoverScript.MonsterButtonUp();
