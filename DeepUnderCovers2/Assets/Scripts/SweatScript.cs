@@ -7,8 +7,7 @@ public class SweatScript : MonoBehaviour {
 	public Slider heatSlider;
 
 	public Animator anim;
-
-
+		
 	public float AnimatorSliderValue
 	{
 		get {
