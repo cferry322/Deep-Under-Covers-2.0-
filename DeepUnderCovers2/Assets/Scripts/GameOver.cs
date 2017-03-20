@@ -11,6 +11,7 @@ public class GameOver : MonoBehaviour {
 	static bool lose;
 	static bool win;
 	static bool restart;
+	bool start;
 
 	public Slider heatSlider;
 	public Slider timerSlider;
@@ -19,12 +20,23 @@ public class GameOver : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		start = true;
 		gameOverText.text = "";
-		restartText.text = "";
+		//pause the game until they tap
+		restartText.text = "Tap to Start";
+		Time.timeScale = 0.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		//only called at the start
+		if (start) {
+			if (Input.GetButtonDown ("Fire1")) {
+				Time.timeScale = 1.0f;
+				restartText.text = "";
+			}
+		}
 
 		if (restart) {
 			restartText.text = "Tap to restart";
