@@ -42,7 +42,7 @@ public class GameOver : MonoBehaviour {
 			restartText.text = "Tap to restart";
 			if (Input.GetButtonDown ("Fire1"))
 			{
-				SceneManager.LoadScene("DanWorkshop");
+				SceneManager.LoadScene("Level 1");
 				restart = false;
 				lose = false;
 				win = false;
