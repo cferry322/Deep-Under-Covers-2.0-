@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class HeatControlScript : MonoBehaviour {
 
 	static Slider heatSlider;
-	static bool HeatControlwin;
 
 
 	// Use this for initialization

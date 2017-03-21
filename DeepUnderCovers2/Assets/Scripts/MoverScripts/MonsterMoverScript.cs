@@ -24,8 +24,9 @@ public class MonsterMoverScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.CompareTag("Arm") || other.CompareTag("Leg"))
-			GameOver.LoseGame();
+//		if (other.CompareTag ("Arm") || other.CompareTag ("Leg"))
+//			this.transform.position = new Vector3 (boundary.rightBoundary,this.transform.position.y, 0.0f);
+		GameOver.LoseGame();
 	}
 
 	static public void MonsterButtonDown(){

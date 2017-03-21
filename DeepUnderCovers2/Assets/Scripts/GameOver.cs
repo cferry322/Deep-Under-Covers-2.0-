@@ -18,11 +18,11 @@ public class GameOver : MonoBehaviour {
 	public Text gameOverText;
 	public Text restartText;
 
-	// Use this for initialization
+	//pause the game until they tap
 	void Start () {
 		start = true;
+		restart = false;
 		gameOverText.text = "";
-		//pause the game until they tap
 		restartText.text = "Tap to Start";
 		Time.timeScale = 0.0f;
 	}
