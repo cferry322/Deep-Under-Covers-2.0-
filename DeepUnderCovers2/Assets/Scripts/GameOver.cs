@@ -13,6 +13,9 @@ public class GameOver : MonoBehaviour {
 	static bool restart;
 	bool start;
 
+	public GameObject panel;
+	public GameObject restartButton;
+	public GameObject nextLevelButton;
 	public Slider heatSlider;
 	public Slider timerSlider;
 	public Text gameOverText;
@@ -55,9 +58,14 @@ public class GameOver : MonoBehaviour {
 
 		if (lose) {
 			gameOverText.text = "You Lose!";
+			panel.gameObject.SetActive(true);
+			restartButton.gameObject.SetActive(true);
+
 		}
 		if (win) {
 			gameOverText.text = "You Win!";
+			panel.gameObject.SetActive (true);
+			nextLevelButton.gameObject.SetActive(true);
 		}
 
 	}
