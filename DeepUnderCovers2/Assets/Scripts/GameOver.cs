@@ -10,7 +10,6 @@ public class GameOver : MonoBehaviour {
 
 	static bool lose;
 	static bool win;
-	static bool restart;
 	bool start;
 
 	public GameObject panel;
@@ -19,14 +18,13 @@ public class GameOver : MonoBehaviour {
 	public Slider heatSlider;
 	public Slider timerSlider;
 	public Text gameOverText;
-	public Text restartText;
 
 	//pause the game until they tap
 	void Start () {
 		start = true;
-		restart = false;
-		gameOverText.text = "";
-		restartText.text = "Tap to Start";
+        lose = false;
+        win = false;
+        gameOverText.text = "Tap to Start";
 		Time.timeScale = 0.0f;
 	}
 	
@@ -37,22 +35,8 @@ public class GameOver : MonoBehaviour {
 		if (start) {
 			if (Input.GetButtonDown ("Fire1")) {
 				Time.timeScale = 1.0f;
-				restartText.text = "";
-			}
-		}
-
-		if (restart) {
-			restartText.text = "Tap to restart";
-			if (Input.GetButtonDown ("Fire1"))
-			{
-				SceneManager.LoadScene("Level 1");
-				restart = false;
-				lose = false;
-				win = false;
-				gameOverText.text = "";
-				restartText.text = "";
-				Time.timeScale = 1;
-
+                gameOverText.text = "";
+                start = false;
 			}
 		}
 
@@ -71,12 +55,10 @@ public class GameOver : MonoBehaviour {
 	}
 	public static void LoseGame() {
 		lose = true;
-		restart = true;
 		Time.timeScale = 0;
 	}
 	public static void WinGame() {
 		win = true;
-		restart = true;
 		Time.timeScale = 0;
 	}
 }
