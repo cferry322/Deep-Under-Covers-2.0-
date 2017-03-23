@@ -7,10 +7,13 @@ using UnityEngine.UI;
 public class LevelChangerScript : MonoBehaviour
 {
 
-    public void NextLevel(string nextLevel)
+    public void NextLevel()
     {
-
-        SceneManager.LoadSceneAsync(nextLevel);
-
+		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+	public void LevelByName(string levelName) 
+	{
+		SceneManager.LoadSceneAsync(levelName);
+	}
 }

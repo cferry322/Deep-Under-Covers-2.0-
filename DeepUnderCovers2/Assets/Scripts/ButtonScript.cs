@@ -80,16 +80,5 @@ public class ButtonScript : MonoBehaviour {
 		}
 
 	}
-
-	/*
-	MonsterMoverScript.MonsterButtonDown ();
-	MoverScript.MoverButtonDown ();
-	LeftMonsterMoverScript.MonsterButtonDown ();
-	LeftMoverScript.MoverButtonDown ();
-
-	MonsterMoverScript.MonsterButtonUp ();
-		MoverScript.MoverButtonUp ();
-		LeftMonsterMoverScript.MonsterButtonUp ();
-		LeftMoverScript.MoverButtonUp ();
-*/
+		
 	}

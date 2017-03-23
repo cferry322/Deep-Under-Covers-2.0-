@@ -7,11 +7,11 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour {
 
-
 	static bool lose;
 	static bool win;
 	bool start;
 
+	int scene;
 	public GameObject panel;
 	public GameObject restartButton;
 	public GameObject nextLevelButton;
@@ -26,6 +26,8 @@ public class GameOver : MonoBehaviour {
         win = false;
         gameOverText.text = "Tap to Start";
 		Time.timeScale = 0.0f;
+		scene = SceneManager.GetActiveScene().buildIndex;
+		PlayerPrefs.SetInt ("level number", scene);
 	}
 	
 	// Update is called once per frame
@@ -59,6 +61,10 @@ public class GameOver : MonoBehaviour {
 	}
 	public static void WinGame() {
 		win = true;
+		if (PlayerPrefs.GetInt ("level number") == 2) 
+		{
+			PlayerPrefs.SetInt ("level number", 0);
+		}
 		Time.timeScale = 0;
 	}
 }

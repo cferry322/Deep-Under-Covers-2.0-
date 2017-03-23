@@ -58,13 +58,14 @@
      <Compile Include="Assets\ExampleScripts\ScoreManagerScript.cs" />
      <Compile Include="Assets\ExampleScripts\SplashScreenScript.cs" />
      <Compile Include="Assets\Scripts\ButtonScript.cs" />
+     <Compile Include="Assets\Scripts\ContinueButtonScript.cs" />
      <Compile Include="Assets\Scripts\GameOver.cs" />
      <Compile Include="Assets\Scripts\HeatControlScript.cs" />
+     <Compile Include="Assets\Scripts\LevelChangerScript.cs" />
      <Compile Include="Assets\Scripts\MoverScripts\LeftMonsterMoverScript.cs" />
      <Compile Include="Assets\Scripts\MoverScripts\LeftMoverScript.cs" />
      <Compile Include="Assets\Scripts\MoverScripts\MonsterMoverScript.cs" />
      <Compile Include="Assets\Scripts\MoverScripts\MoverScript.cs" />
-     <Compile Include="Assets\Scripts\NewGameScript.cs" />
      <Compile Include="Assets\Scripts\SweatScript.cs" />
      <Compile Include="Assets\Scripts\TimerScript.cs" />
      <Compile Include="Assets\Scripts\TouchInputScript.cs" />

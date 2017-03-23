@@ -1,0 +1,17 @@
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/UnityEngine.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/UnityEditor.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/UnityEngine.Analytics.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/UnityEngine.PlaymodeTestsRunner.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/UnityEngine.HoloLens.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/UnityEngine.VR.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/Mono.Cecil.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/Unity.DataContract.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/DanKaiser/Documents/DeepUnderCoversTwo/DeepUnderCovers2/Temp/bin/Debug/Mono.Cecil.Mdb.dll
