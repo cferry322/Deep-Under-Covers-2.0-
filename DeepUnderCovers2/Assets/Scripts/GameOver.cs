@@ -18,6 +18,7 @@ public class GameOver : MonoBehaviour {
 	public Slider heatSlider;
 	public Slider timerSlider;
 	public Text gameOverText;
+	public AudioSource theme;
 
 	//pause the game until they tap
 	void Start () {
@@ -39,7 +40,14 @@ public class GameOver : MonoBehaviour {
 				Time.timeScale = 1.0f;
                 gameOverText.text = "";
                 start = false;
+				theme.Play();
 			}
+		}
+
+		if (Time.timeScale == 1.0f) {
+			theme.UnPause();
+		} else {
+			theme.Pause();
 		}
 
 		if (lose) {
