@@ -11,6 +11,7 @@ public class ButtonScript : MonoBehaviour {
 
 	public float increaseHeatAmount = 0.2f;
 	public float decreaseHeatAmount = 0.2f;
+	public AudioSource limbs;
 
 	void Start(){
 		rightArmPressed = false;
@@ -31,6 +32,7 @@ public class ButtonScript : MonoBehaviour {
 		rightArmPressed = false;
 		MonsterMoverScript.MonsterButtonUp ();
 		MoverScript.ArmButtonUp ();
+		limbs.Play ();
 	}
 	public void RightLegButtonPressed() {
 		rightLegPressed = true;
@@ -42,6 +44,7 @@ public class ButtonScript : MonoBehaviour {
 		rightLegPressed = false;
 		MonsterMoverScript.LegMonsterButtonUp ();
 		MoverScript.LegButtonUp ();
+		limbs.Play ();
 	}
 
     public void LeftArmButtonPressed()
@@ -56,6 +59,7 @@ public class ButtonScript : MonoBehaviour {
         leftArmPressed = false;
         LeftMonsterMoverScript.MonsterButtonUp();
         LeftMoverScript.ArmButtonUp();
+		limbs.Play ();
     }
     public void LeftLegButtonPressed()
     {
@@ -69,6 +73,7 @@ public class ButtonScript : MonoBehaviour {
         leftLegPressed = false;
         LeftMonsterMoverScript.LegMonsterButtonUp();
         LeftMoverScript.LegButtonUp();
+		limbs.Play ();
     }
 
     void Update(){
