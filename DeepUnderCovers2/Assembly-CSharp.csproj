@@ -66,13 +66,11 @@
      <Compile Include="Assets\Scripts\MoverScripts\LeftMoverScript.cs" />
      <Compile Include="Assets\Scripts\MoverScripts\MonsterMoverScript.cs" />
      <Compile Include="Assets\Scripts\MoverScripts\MoverScript.cs" />
+     <Compile Include="Assets\Scripts\SoundMenuScript.cs" />
      <Compile Include="Assets\Scripts\SweatScript.cs" />
      <Compile Include="Assets\Scripts\TimerScript.cs" />
      <Compile Include="Assets\Scripts\TouchInputScript.cs" />
      <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
- <Reference Include="UnityEngine.Purchasing">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
@@ -84,9 +82,6 @@
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
