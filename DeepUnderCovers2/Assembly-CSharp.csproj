@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\MoverScripts\LeftMoverScript.cs" />
      <Compile Include="Assets\Scripts\MoverScripts\MonsterMoverScript.cs" />
      <Compile Include="Assets\Scripts\MoverScripts\MoverScript.cs" />
+     <Compile Include="Assets\Scripts\SoundManagerScript.cs" />
      <Compile Include="Assets\Scripts\SoundMenuScript.cs" />
      <Compile Include="Assets\Scripts\SweatScript.cs" />
      <Compile Include="Assets\Scripts\TimerScript.cs" />

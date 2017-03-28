@@ -12,6 +12,7 @@ public class GameOver : MonoBehaviour {
 	bool start;
 
 	int scene;
+	public GameObject controlButtons;
 	public GameObject panel;
 	public GameObject restartButton;
 	public GameObject nextLevelButton;
@@ -38,28 +39,32 @@ public class GameOver : MonoBehaviour {
 		if (start) {
 			if (Input.GetButtonDown ("Fire1")) {
 				Time.timeScale = 1.0f;
-                gameOverText.text = "";
+				gameOverText.gameObject.SetActive(false);
                 start = false;
 				theme.Play();
 			}
 		}
 
 		if (Time.timeScale == 1.0f) {
-			theme.UnPause();
-		} else {
-			theme.Pause();
-		}
+			theme.UnPause ();
+		} //else {
+//			theme.Pause();
+//		}
 
 		if (lose) {
+			gameOverText.gameObject.SetActive(true);
 			gameOverText.text = "You Lose!";
 			panel.gameObject.SetActive(true);
 			restartButton.gameObject.SetActive(true);
-
+			controlButtons.SetActive (false);
 		}
 		if (win) {
+			gameOverText.gameObject.SetActive(true);
 			gameOverText.text = "You Win!";
 			panel.gameObject.SetActive (true);
 			nextLevelButton.gameObject.SetActive(true);
+			controlButtons.SetActive (false);
+
 		}
 
 	}
