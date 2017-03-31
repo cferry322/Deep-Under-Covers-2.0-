@@ -33,10 +33,6 @@ public class MoverScript : MonoBehaviour {
 		legPressed = false;
 	}
 
-//	void OnTriggerEnter2D(Collider2D other) {
-//		if (other.CompareTag ("Arm") || other.CompareTag ("Leg"))
-//			this.transform.position = new Vector3 (boundary.leftBoundary,this.transform.position.y, 0.0f);
-//	}
 
 	// Update is called once per frame
 	void Update () {

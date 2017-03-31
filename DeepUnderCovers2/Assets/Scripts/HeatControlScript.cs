@@ -20,7 +20,7 @@ public class HeatControlScript : MonoBehaviour {
 		}
 
 	}
-	public static void DecraseSlider(float decreaseValue)
+	public static void DecreaseSlider(float decreaseValue)
 	{
 		heatSlider.value -= decreaseValue;
 	}
