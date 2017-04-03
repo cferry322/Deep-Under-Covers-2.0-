@@ -12,14 +12,12 @@ public class LimbHeatScript : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         inTheZone = true;
-        Debug.Log("In");
 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         inTheZone = false;
-        Debug.Log("Out");
 
     }
 

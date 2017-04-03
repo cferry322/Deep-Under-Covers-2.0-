@@ -12,6 +12,10 @@ public class LevelChangerScript : MonoBehaviour
 		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+	public void RestartLevel() {
+		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+	}
+
 	public void LevelByName(string levelName) 
 	{
 		SceneManager.LoadSceneAsync(levelName);

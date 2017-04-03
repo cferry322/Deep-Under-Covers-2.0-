@@ -30,6 +30,7 @@ public class GameOver : MonoBehaviour {
 		Time.timeScale = 0.0f;
 		scene = SceneManager.GetActiveScene().buildIndex;
 		PlayerPrefs.SetInt ("level number", scene);
+		Debug.Log (PlayerPrefs.GetInt ("level number", scene));
 	}
 	
 	// Update is called once per frame
@@ -41,17 +42,18 @@ public class GameOver : MonoBehaviour {
 				Time.timeScale = 1.0f;
 				gameOverText.gameObject.SetActive(false);
                 start = false;
-				theme.Play();
+				theme.Play ();
+				if (PlayerPrefs.GetInt ("music") == 0) {
+					theme.mute = true;
+				} else 
+				{
+					theme.mute = false;
+				}
 			}
 		}
 
-		if (Time.timeScale == 1.0f) {
-			theme.UnPause ();
-		} //else {
-//			theme.Pause();
-//		}
-
 		if (lose) {
+			theme.Pause();
 			gameOverText.gameObject.SetActive(true);
 			gameOverText.text = "You Lose!";
 			panel.gameObject.SetActive(true);
@@ -59,11 +61,12 @@ public class GameOver : MonoBehaviour {
 			controlButtons.SetActive (false);
 		}
 		if (win) {
+			theme.Pause();
 			gameOverText.gameObject.SetActive(true);
 			gameOverText.text = "You Win!";
 			panel.gameObject.SetActive (true);
-			nextLevelButton.gameObject.SetActive(true);
 			controlButtons.SetActive (false);
+			nextLevelButton.gameObject.SetActive(true);
 
 		}
 
