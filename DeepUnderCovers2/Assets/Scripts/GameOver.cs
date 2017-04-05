@@ -7,11 +7,17 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour {
 
+
+
+	static bool heatLose;
 	static bool lose;
 	static bool win;
 	bool start;
 
 	int scene;
+	public GameObject surprisedFace;
+	public GameObject sleepingFace;
+	public GameObject overheatFace;
 	public GameObject controlButtons;
 	public GameObject panel;
 	public GameObject restartButton;
@@ -21,10 +27,13 @@ public class GameOver : MonoBehaviour {
 	public Text gameOverText;
 	public AudioSource theme;
 
+
 	//pause the game until they tap
 	void Start () {
+
 		start = true;
         lose = false;
+		heatLose = false;
         win = false;
         gameOverText.text = "Tap to Start";
 		Time.timeScale = 0.0f;
@@ -32,7 +41,7 @@ public class GameOver : MonoBehaviour {
 		PlayerPrefs.SetInt ("level number", scene);
 		Debug.Log (PlayerPrefs.GetInt ("level number", scene));
 	}
-	
+		
 	// Update is called once per frame
 	void Update () {
 
@@ -52,7 +61,12 @@ public class GameOver : MonoBehaviour {
 			}
 		}
 
-		if (lose) {
+		if (lose || heatLose) {
+			if (heatLose) {
+				overheatFace.gameObject.SetActive (true);
+			} else if (lose) {
+				surprisedFace.gameObject.SetActive(true);
+			}
 			theme.Pause();
 			gameOverText.gameObject.SetActive(true);
 			gameOverText.text = "You Lose!";
@@ -60,7 +74,9 @@ public class GameOver : MonoBehaviour {
 			restartButton.gameObject.SetActive(true);
 			controlButtons.SetActive (false);
 		}
+
 		if (win) {
+			sleepingFace.gameObject.SetActive(true);
 			theme.Pause();
 			gameOverText.gameObject.SetActive(true);
 			gameOverText.text = "You Win!";
@@ -70,6 +86,13 @@ public class GameOver : MonoBehaviour {
 
 		}
 
+	}
+
+
+
+	public static void HeatLoseGame() {
+		heatLose = true;
+		Time.timeScale = 0;
 	}
 	public static void LoseGame() {
 		lose = true;

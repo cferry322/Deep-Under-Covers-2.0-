@@ -16,7 +16,7 @@ public class HeatControlScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(heatSlider.value >= 1) {
-			GameOver.LoseGame();
+			GameOver.HeatLoseGame();
 		}
 
 	}

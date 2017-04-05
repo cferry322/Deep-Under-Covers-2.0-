@@ -7,7 +7,8 @@ public class SweatScript : MonoBehaviour {
 	public Slider heatSlider;
 
 	public Animator anim;
-		
+
+
 	public float AnimatorSliderValue
 	{
 		get {
@@ -22,6 +23,7 @@ public class SweatScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		AnimatorSliderValue = heatSlider.value;
+
 	}
 		
 }

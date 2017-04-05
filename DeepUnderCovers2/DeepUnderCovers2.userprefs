@@ -1,19 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SoundManagerScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameOver.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameOver.cs" Line="48" Column="11" />
+      <File FileName="Assets/Scripts/SweatScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameOver.cs" Line="10" Column="2" />
       <File FileName="Assets/Scripts/SoundManagerScript.cs" Line="33" Column="3" />
       <File FileName="Assets/MenuScript.cs" Line="12" Column="2" />
       <File FileName="Assets/Scripts/SoundMenuScript.cs" Line="13" Column="25" />
       <File FileName="Assets/Scripts/LevelChangerScript.cs" Line="17" Column="3" />
-      <File FileName="Assets/Scripts/HeatControlScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/HeatControlScript.cs" Line="19" Column="1" />
       <File FileName="Assets/Scripts/ButtonScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/TimerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TimerScript.cs" Line="22" Column="1" />
       <File FileName="Assets/Scripts/ContinueButtonScript.cs" Line="1" Column="1" />
       <File FileName="Assets/ExampleScripts/MasterGameCtrlScript.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/MoverScripts/MoverScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/LimbHeatScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
