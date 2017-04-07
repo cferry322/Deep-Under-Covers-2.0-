@@ -19,7 +19,15 @@ public class SweatScript : MonoBehaviour {
 			anim.SetFloat ("HeatSliderValue", value);
 		}
 	}
-	
+
+	public void WinTrue(){
+		anim.SetBool ("Win", true);
+	}
+
+	public void LoseTrue(){
+		anim.SetBool ("Lose", true);
+	}
+
 	// Update is called once per frame
 	void Update () {
 		AnimatorSliderValue = heatSlider.value;

@@ -10,7 +10,7 @@ public class MonsterBoundary
 
 public class MonsterMoverScript : MonoBehaviour {
 
-
+	public GameObject gameController;
 	static private bool armPressed;
 	static private bool legPressed;
 
@@ -26,7 +26,7 @@ public class MonsterMoverScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Arm") || other.CompareTag("Leg"))
         {
-            GameOver.LoseGame();
+			gameController.GetComponent<GameOver> ().LoseGame ();
         }
 	}
 

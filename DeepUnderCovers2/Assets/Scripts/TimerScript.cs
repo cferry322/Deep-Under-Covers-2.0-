@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class TimerScript : MonoBehaviour {
 	public float increaseAmount = 0.1f;
 
+	public GameObject gameController;
 	static Slider timerSlider;
 	static bool lose;
 
@@ -20,7 +21,7 @@ public class TimerScript : MonoBehaviour {
 	void Update () {
 
 		if(timerSlider.value >= 1) {
-			GameOver.WinGame();
+			gameController.GetComponent<GameOver> ().WinGame ();
 		}
 
 		timerSlider.value = timerSlider.value + increaseAmount * Time.deltaTime;

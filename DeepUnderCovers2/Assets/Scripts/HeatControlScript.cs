@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HeatControlScript : MonoBehaviour {
 
 	static Slider heatSlider;
+	public GameObject gameController;
 
 
 	// Use this for initialization
@@ -16,7 +17,7 @@ public class HeatControlScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(heatSlider.value >= 1) {
-			GameOver.HeatLoseGame();
+			gameController.GetComponent<GameOver>().HeatLose();
 		}
 
 	}

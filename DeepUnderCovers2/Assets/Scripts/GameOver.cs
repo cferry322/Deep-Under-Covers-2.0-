@@ -9,15 +9,12 @@ public class GameOver : MonoBehaviour {
 
 
 
-	static bool heatLose;
 	static bool lose;
 	static bool win;
 	bool start;
 
 	int scene;
-	public GameObject surprisedFace;
-	public GameObject sleepingFace;
-	public GameObject overheatFace;
+	public GameObject boyHead;
 	public GameObject controlButtons;
 	public GameObject panel;
 	public GameObject restartButton;
@@ -33,7 +30,6 @@ public class GameOver : MonoBehaviour {
 
 		start = true;
         lose = false;
-		heatLose = false;
         win = false;
         gameOverText.text = "Tap to Start";
 		Time.timeScale = 0.0f;
@@ -61,12 +57,7 @@ public class GameOver : MonoBehaviour {
 			}
 		}
 
-		if (lose || heatLose) {
-			if (heatLose) {
-				overheatFace.gameObject.SetActive (true);
-			} else if (lose) {
-				surprisedFace.gameObject.SetActive(true);
-			}
+		if (lose) {
 			theme.Pause();
 			gameOverText.gameObject.SetActive(true);
 			gameOverText.text = "You Lose!";
@@ -76,7 +67,6 @@ public class GameOver : MonoBehaviour {
 		}
 
 		if (win) {
-			sleepingFace.gameObject.SetActive(true);
 			theme.Pause();
 			gameOverText.gameObject.SetActive(true);
 			gameOverText.text = "You Win!";
@@ -88,18 +78,20 @@ public class GameOver : MonoBehaviour {
 
 	}
 
-
-
-	public static void HeatLoseGame() {
-		heatLose = true;
-		Time.timeScale = 0;
-	}
-	public static void LoseGame() {
+	public void HeatLose() {
 		lose = true;
 		Time.timeScale = 0;
 	}
-	public static void WinGame() {
+
+
+	public void LoseGame() {
+		lose = true;
+		boyHead.GetComponent<SweatScript> ().LoseTrue ();
+		Time.timeScale = 0;
+	}
+	public void WinGame() {
 		win = true;
+		boyHead.GetComponent<SweatScript> ().WinTrue ();
 		if (PlayerPrefs.GetInt ("level number") == 2) 
 		{
 			PlayerPrefs.SetInt ("level number", 0);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LeftMonsterMoverScript : MonoBehaviour {
 
-
+	public GameObject gameController;
 	static private bool armPressed;
     static private bool legPressed;
 
@@ -20,7 +20,7 @@ public class LeftMonsterMoverScript : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.CompareTag("Arm") || other.CompareTag("Leg"))
-			GameOver.LoseGame();
+			gameController.GetComponent<GameOver> ().LoseGame ();	
 	}
 
 	static public void MonsterButtonDown(){
