@@ -9,19 +9,20 @@ public class TimerScript : MonoBehaviour {
 
 	public GameObject gameController;
 	static Slider timerSlider;
-	static bool lose;
+	private bool won;
 
 	// Use this for initialization
 	void Start () {
 		timerSlider = GetComponent<Slider> ();
-
+		won = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if(timerSlider.value >= 1) {
+		if(timerSlider.value >= 1 && won != true) {
 			gameController.GetComponent<GameOver> ().WinGame ();
+			won = true;
 		}
 
 		timerSlider.value = timerSlider.value + increaseAmount * Time.deltaTime;

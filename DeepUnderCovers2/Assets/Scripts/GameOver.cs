@@ -22,7 +22,12 @@ public class GameOver : MonoBehaviour {
 	public Slider heatSlider;
 	public Slider timerSlider;
 	public Text gameOverText;
-	public AudioSource theme;
+	public AudioSource music;
+	public AudioSource sound;
+	public AudioClip winClip;
+	public AudioClip loseClip;
+	//public AudioClip monsterLose;
+	//public AudioClip heatlose;
 
 
 	//pause the game until they tap
@@ -42,32 +47,37 @@ public class GameOver : MonoBehaviour {
 	void Update () {
 
 		//only called at the start
+		//starts the music and the time
 		if (start) {
 			if (Input.GetButtonDown ("Fire1")) {
 				Time.timeScale = 1.0f;
 				gameOverText.gameObject.SetActive(false);
                 start = false;
-				theme.Play ();
+				music.Play ();
 				if (PlayerPrefs.GetInt ("music") == 0) {
-					theme.mute = true;
+					music.mute = true;
 				} else 
 				{
-					theme.mute = false;
+					music.mute = false;
 				}
 			}
 		}
-
+		//enables UI panel with option to restart
 		if (lose) {
-			theme.Pause();
+			music.Pause();
+			gameOverText.rectTransform.anchoredPosition = new Vector3 (0, -350, 0);
+			gameOverText.fontSize = 80;
 			gameOverText.gameObject.SetActive(true);
 			gameOverText.text = "You Lose!";
 			panel.gameObject.SetActive(true);
 			restartButton.gameObject.SetActive(true);
 			controlButtons.SetActive (false);
 		}
-
+		//enables the UI panel with option to go to next level
 		if (win) {
-			theme.Pause();
+			music.Pause();
+			gameOverText.rectTransform.anchoredPosition = new Vector3 (0, -350, 0);
+			gameOverText.fontSize = 80;
 			gameOverText.gameObject.SetActive(true);
 			gameOverText.text = "You Win!";
 			panel.gameObject.SetActive (true);
@@ -77,18 +87,21 @@ public class GameOver : MonoBehaviour {
 		}
 
 	}
-
+	//called when the heat reaches max
 	public void HeatLose() {
 		lose = true;
 		Time.timeScale = 0;
+		sound.PlayOneShot (loseClip);
 	}
 
-
+	//called when monster touches
 	public void LoseGame() {
 		lose = true;
 		boyHead.GetComponent<SweatScript> ().LoseTrue ();
+		sound.PlayOneShot (loseClip);
 		Time.timeScale = 0;
 	}
+	//called when the timer reaches max
 	public void WinGame() {
 		win = true;
 		boyHead.GetComponent<SweatScript> ().WinTrue ();
@@ -96,6 +109,7 @@ public class GameOver : MonoBehaviour {
 		{
 			PlayerPrefs.SetInt ("level number", 0);
 		}
+		sound.PlayOneShot (winClip);
 		Time.timeScale = 0;
 	}
 }

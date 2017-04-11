@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class SoundManagerScript : MonoBehaviour {
 
 	public AudioSource sounds;
+	public AudioSource music;
+	public AudioClip buttonClick;
 	public Toggle toggle;
+
 
 	void Start() {
 		if (this.gameObject.name == "Toggle Sound" && PlayerPrefs.GetInt ("sound") == 1) {
@@ -20,6 +23,7 @@ public class SoundManagerScript : MonoBehaviour {
 
 	public void MuteSounds() 
 	{
+		sounds.PlayOneShot (buttonClick);
 		if (!toggle.isOn) {
 			PlayerPrefs.SetInt ("sound", 1);
 			sounds.mute = false;
@@ -31,12 +35,13 @@ public class SoundManagerScript : MonoBehaviour {
 
 	public void MuteMusic() 
 	{
+		sounds.PlayOneShot (buttonClick);
 		if (!toggle.isOn) {
 			PlayerPrefs.SetInt ("music", 1);
-			sounds.mute = false;
+			music.mute = false;
 		} else {
 			PlayerPrefs.SetInt ("music", 0);
-			sounds.mute = true;
+			music.mute = true;
 		}
 	}
 }
