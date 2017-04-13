@@ -14,6 +14,7 @@ public class GameOver : MonoBehaviour {
 	bool start;
 
 	int scene;
+	public GameObject calendar;
 	public GameObject boyHead;
 	public GameObject controlButtons;
 	public GameObject panel;
@@ -22,12 +23,13 @@ public class GameOver : MonoBehaviour {
 	public Slider heatSlider;
 	public Slider timerSlider;
 	public Text gameOverText;
+	public Text calendarText;
 	public AudioSource music;
 	public AudioSource sound;
 	public AudioClip winClip;
 	public AudioClip loseClip;
-	//public AudioClip monsterLose;
-	//public AudioClip heatlose;
+
+	private int calendarNumber;
 
 
 	//pause the game until they tap
@@ -41,6 +43,9 @@ public class GameOver : MonoBehaviour {
 		scene = SceneManager.GetActiveScene().buildIndex;
 		PlayerPrefs.SetInt ("level number", scene);
 		Debug.Log (PlayerPrefs.GetInt ("level number", scene));
+		calendarNumber = PlayerPrefs.GetInt ("level number", scene);
+		calendarText.text = calendarNumber.ToString();
+
 	}
 		
 	// Update is called once per frame
@@ -53,11 +58,11 @@ public class GameOver : MonoBehaviour {
 				Time.timeScale = 1.0f;
 				gameOverText.gameObject.SetActive(false);
                 start = false;
+				calendar.gameObject.SetActive (false);
 				music.Play ();
 				if (PlayerPrefs.GetInt ("music") == 0) {
 					music.mute = true;
-				} else 
-				{
+				} else {
 					music.mute = false;
 				}
 			}
