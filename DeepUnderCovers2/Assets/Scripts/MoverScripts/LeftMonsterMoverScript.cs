@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LeftMonsterMoverScript : MonoBehaviour {
 
@@ -16,16 +17,24 @@ public class LeftMonsterMoverScript : MonoBehaviour {
     {
 		armPressed = false;
         legPressed = false;
-	}
+        if (SceneManager.GetActiveScene().name == "Infinite")
+        {
+            MonsterFaster();
+        }
+    }
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.CompareTag("Arm") || other.CompareTag("Leg"))
 			gameController.GetComponent<GameOver> ().LoseGame ();	
 	}
 
+    public void MonsterFaster() {
+        speedRight = speedRight + PlayerPrefs.GetInt("Infinite level");
+        speedLeft = speedLeft + PlayerPrefs.GetInt("Infinite level");
+    }
+
 	static public void MonsterButtonDown(){
         armPressed = true;
-
     }
 
 	static public void MonsterButtonUp(){

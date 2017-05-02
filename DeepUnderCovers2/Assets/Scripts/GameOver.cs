@@ -22,6 +22,7 @@ public class GameOver : MonoBehaviour {
 	public GameObject nextLevelButton;
 	public Slider heatSlider;
 	public Slider timerSlider;
+    public Text restartButtonText;
 	public Text gameOverText;
 	public Text calendarText;
 	public AudioSource music;
@@ -30,22 +31,31 @@ public class GameOver : MonoBehaviour {
 	public AudioClip loseClip;
 
 	private int calendarNumber;
+    private int infitineNumber;
+    private string sceneName; 
 
 
 	//pause the game until they tap
 	void Start () {
+
+        infitineNumber = PlayerPrefs.GetInt("Infinite level");
+        sceneName = SceneManager.GetActiveScene().name;
 
 		start = true;
         lose = false;
         win = false;
         gameOverText.text = "Tap to Start";
 		Time.timeScale = 0.0f;
-		scene = SceneManager.GetActiveScene().buildIndex;
-		PlayerPrefs.SetInt ("level number", scene);
-		Debug.Log (PlayerPrefs.GetInt ("level number", scene));
-		calendarNumber = PlayerPrefs.GetInt ("level number", scene);
-		calendarText.text = calendarNumber.ToString();
-
+        if (sceneName == "Infinite")
+        {
+            calendarText.text = infitineNumber.ToString();
+        }else {
+            scene = SceneManager.GetActiveScene().buildIndex;
+            PlayerPrefs.SetInt("level number", scene);
+            Debug.Log(PlayerPrefs.GetInt("level number", scene));
+            calendarNumber = PlayerPrefs.GetInt("level number", scene);
+            calendarText.text = calendarNumber.ToString();
+        }
 	}
 		
 	// Update is called once per frame
@@ -65,7 +75,15 @@ public class GameOver : MonoBehaviour {
 				} else {
 					music.mute = false;
 				}
-			}
+                if (PlayerPrefs.GetInt("sound") == 0)
+                {
+                    sound.mute = true;
+                }
+                else
+                {
+                    sound.mute = false;
+                }
+            }
 		}
 		//enables UI panel with option to restart
 		if (lose) {
@@ -87,10 +105,17 @@ public class GameOver : MonoBehaviour {
 			gameOverText.text = "You Win!";
 			panel.gameObject.SetActive (true);
 			controlButtons.SetActive (false);
-			nextLevelButton.gameObject.SetActive(true);
-
+            if (sceneName == "Infinite")
+            {
+                PlayerPrefs.SetInt("Infinite level", infitineNumber + 1);
+                restartButtonText.text = "Next Level";
+                restartButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                nextLevelButton.gameObject.SetActive(true);
+            }
 		}
-
 	}
 	//called when the heat reaches max
 	public void HeatLose() {

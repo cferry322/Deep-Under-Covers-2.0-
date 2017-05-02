@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LimbHeatScript : MonoBehaviour {
 
@@ -19,6 +20,15 @@ public class LimbHeatScript : MonoBehaviour {
     {
         inTheZone = false;
 
+    }
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "Infinite")
+        {
+            decreaseAmount = decreaseAmount + PlayerPrefs.GetInt("Infinite level");
+
+            increaseAmount = increaseAmount + (PlayerPrefs.GetInt("Infinite level") / (3.5f - (PlayerPrefs.GetInt("Infinite level"))/ 10));
+        }
     }
 
     // Update is called once per frame

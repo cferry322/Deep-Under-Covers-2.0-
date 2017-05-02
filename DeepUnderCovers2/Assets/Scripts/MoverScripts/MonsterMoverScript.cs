@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class MonsterBoundary
@@ -21,7 +22,11 @@ public class MonsterMoverScript : MonoBehaviour {
 	void Start(){
 		armPressed = false;
 		legPressed = false;
-	}
+        if (SceneManager.GetActiveScene().name == "Infinite")
+        {
+            MonsterFaster();
+        }
+    }
 
 	void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Arm") || other.CompareTag("Leg"))
@@ -30,7 +35,29 @@ public class MonsterMoverScript : MonoBehaviour {
         }
 	}
 
-	static public void MonsterButtonDown(){
+    public void MonsterFaster()
+    {
+        if (speedRight < 10)
+        {
+            speedRight = speedRight + PlayerPrefs.GetInt("Infinite level");
+        }
+        else if (speedRight >= 10 && speedRight < 15)
+        {
+            speedRight = speedRight + (PlayerPrefs.GetInt("Infinite level") / 10);
+        }
+
+
+        if (speedLeft < 10)
+        {
+            speedLeft = speedLeft + PlayerPrefs.GetInt("Infinite level");
+        }
+        else if (speedLeft >= 10 && speedLeft < 15)
+        {
+            speedLeft = speedLeft + (PlayerPrefs.GetInt("Infinite level") / 10);
+        }
+    }
+
+    static public void MonsterButtonDown(){
 		armPressed = true;
 	}
 	static public void MonsterButtonUp(){
