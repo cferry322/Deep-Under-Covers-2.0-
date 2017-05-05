@@ -20,11 +20,14 @@ public class GameOver : MonoBehaviour {
 	public GameObject panel;
 	public GameObject restartButton;
 	public GameObject nextLevelButton;
+    public GameObject infinite;
 	public Slider heatSlider;
 	public Slider timerSlider;
     public Text restartButtonText;
 	public Text gameOverText;
 	public Text calendarText;
+    public Text highScoreText;
+    public Text lastRoundScoreText;
 	public AudioSource music;
 	public AudioSource sound;
 	public AudioClip winClip;
@@ -32,24 +35,29 @@ public class GameOver : MonoBehaviour {
 
 	private int calendarNumber;
     private int infitineNumber;
-    private string sceneName; 
-
+    private string sceneName;
+    private int lastRoundScore;
+    private int highScore;
 
 	//pause the game until they tap
 	void Start () {
 
         infitineNumber = PlayerPrefs.GetInt("Infinite level");
+        lastRoundScore = PlayerPrefs.GetInt("LastRoundScore");
+        highScore = PlayerPrefs.GetInt("HighScore");
         sceneName = SceneManager.GetActiveScene().name;
 
 		start = true;
         lose = false;
         win = false;
-        gameOverText.text = "Tap to Start";
 		Time.timeScale = 0.0f;
         if (sceneName == "Infinite")
         {
             calendarText.text = infitineNumber.ToString();
-        }else {
+            lastRoundScoreText.text += lastRoundScore.ToString();
+            highScoreText.text += highScore.ToString();
+        }
+        else {
             scene = SceneManager.GetActiveScene().buildIndex;
             PlayerPrefs.SetInt("level number", scene);
             Debug.Log(PlayerPrefs.GetInt("level number", scene));
@@ -88,18 +96,21 @@ public class GameOver : MonoBehaviour {
 		//enables UI panel with option to restart
 		if (lose) {
 			music.Pause();
-			gameOverText.rectTransform.anchoredPosition = new Vector3 (0, -350, 0);
 			gameOverText.fontSize = 80;
 			gameOverText.gameObject.SetActive(true);
 			gameOverText.text = "You Lose!";
 			panel.gameObject.SetActive(true);
 			restartButton.gameObject.SetActive(true);
 			controlButtons.SetActive (false);
+            if (sceneName == "Infinite")
+            {
+                infinite.gameObject.SetActive(true);
+            }
+            lose = false;
 		}
 		//enables the UI panel with option to go to next level
 		if (win) {
 			music.Pause();
-			gameOverText.rectTransform.anchoredPosition = new Vector3 (0, -350, 0);
 			gameOverText.fontSize = 80;
 			gameOverText.gameObject.SetActive(true);
 			gameOverText.text = "You Win!";
@@ -107,14 +118,21 @@ public class GameOver : MonoBehaviour {
 			controlButtons.SetActive (false);
             if (sceneName == "Infinite")
             {
+                if (highScore <= infitineNumber)
+                {
+                    highScore = infitineNumber;
+                    PlayerPrefs.SetInt("HighScore", highScore + 1);
+                }
                 PlayerPrefs.SetInt("Infinite level", infitineNumber + 1);
                 restartButtonText.text = "Next Level";
                 restartButton.gameObject.SetActive(true);
+                infinite.gameObject.SetActive(true);
             }
             else
             {
                 nextLevelButton.gameObject.SetActive(true);
             }
+            win = false;
 		}
 	}
 	//called when the heat reaches max

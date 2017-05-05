@@ -19,7 +19,10 @@ public class LevelChangerScript : MonoBehaviour
 	public void LevelByName(string levelName) 
 	{
         if (SceneManager.GetActiveScene().name == "Infinite") {
+            
+            PlayerPrefs.SetInt("LastRoundScore", PlayerPrefs.GetInt("Infinite level"));
             PlayerPrefs.SetInt("Infinite level", 1);
+            
         }
 
         SceneManager.LoadSceneAsync(levelName);
